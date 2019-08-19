@@ -1,5 +1,6 @@
 <?php
 
+// Ini ada di folder app / core / App.php
 class App
 {
 
@@ -47,3 +48,5 @@ class App
     }
   }
 }
+
+    // Ini ada di folder app / core / App.php
