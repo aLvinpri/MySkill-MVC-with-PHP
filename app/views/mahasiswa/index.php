@@ -2,9 +2,9 @@
 
 <div class="container mt-3">
 
-    <!-- <div class="row">
+    <div class="row">
         <div class="col-lg-6">
-            
+
         </div>
     </div>
 
@@ -27,7 +27,7 @@
                 </div>
             </form>
         </div>
-    </div> -->
+    </div>
 
     <div class="row">
         <div class="col-lg-6">
@@ -44,7 +44,6 @@
             </ul>
         </div>
     </div>
-
 </div>
 
 
@@ -59,7 +58,6 @@
                 </button>
             </div>
             <div class="modal-body">
-
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
                     <input type="hidden" name="id" id="id">
                     <div class="form-group">
@@ -88,7 +86,6 @@
                             <option value="Teknik Lingkungan">Teknik Lingkungan</option>
                         </select>
                     </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

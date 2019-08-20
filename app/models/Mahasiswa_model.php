@@ -5,7 +5,7 @@
 class Mahasiswa_model
 {
     // ***************** Contoh koneksi menggunakan PDO sederhana ********************
-    
+
     // private $dbh; //database handler
     // private $stmt;
 
@@ -54,7 +54,7 @@ class Mahasiswa_model
 
     public function tambahDataMahasiswa($data)
     {
-        $query = "INSERT INTO mahasiswa
+        $query = "INSERT INTO " . $this->table . "
                     VALUES
                 ('', :nama, :nrp, :email, :jurusan)";
 
@@ -66,7 +66,7 @@ class Mahasiswa_model
 
         $this->db->execute();
 
-        return $this->db->rowCount();
+        return $this->db->row_count();
     }
 
     public function hapusDataMahasiswa($id)
@@ -78,7 +78,7 @@ class Mahasiswa_model
 
         $this->db->execute();
 
-        return $this->db->rowCount();
+        return $this->db->row_count();
     }
 
     public function ubahDataMahasiswa($data)
@@ -99,7 +99,7 @@ class Mahasiswa_model
 
         $this->db->execute();
 
-        return $this->db->rowCount();
+        return $this->db->row_count();
     }
 
     public function cariDataMahasiswa()
