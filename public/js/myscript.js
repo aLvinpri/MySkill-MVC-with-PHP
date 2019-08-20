@@ -1,6 +1,6 @@
-$(function() {
+$(function () {
 
-    $('.tombolTambahData').on('click', function() {
+    $('.tombolTambahData').on('click', function () {
         $('#formModalLabel').html('Tambah Data Mahasiswa');
         $('.modal-footer button[type=submit]').html('Tambah Data');
         $('#nama').val('');
@@ -11,20 +11,22 @@ $(function() {
     });
 
 
-    $('.tampilModalUbah').on('click', function() {
-        
+    $('.tampilModalUbah').on('click', function () {
+
         $('#formModalLabel').html('Ubah Data Mahasiswa');
         $('.modal-footer button[type=submit]').html('Ubah Data');
-        $('.modal-body form').attr('action', 'http://localhost/phpmvc/public/mahasiswa/ubah');
+        $('.modal-body form').attr('action', 'http://localhost:81/Phpmvc/public/mahasiswa/ubah'); //mengubah action form dari tambah menjadi ubah
 
         const id = $(this).data('id');
-        
+
         $.ajax({
-            url: 'http://localhost/phpmvc/public/mahasiswa/getubah',
-            data: {id : id},
+            url: 'http://localhost:81/Phpmvc/public/mahasiswa/getUbah',
+            data: {
+                id: id
+            },
             method: 'post',
             dataType: 'json',
-            success: function(data) {
+            success: function (data) {
                 $('#nama').val(data.nama);
                 $('#nrp').val(data.nrp);
                 $('#email').val(data.email);
@@ -32,7 +34,7 @@ $(function() {
                 $('#id').val(data.id);
             }
         });
-        
+
     });
 
 });
