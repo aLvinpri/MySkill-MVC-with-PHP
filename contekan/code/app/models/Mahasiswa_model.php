@@ -1,36 +1,6 @@
-<?php
+<?php 
 
-// Ini ada di folder app / models / Mahasiswa_model.php
-
-class Mahasiswa_model
-{
-    // ***************** Contoh koneksi menggunakan PDO sederhana ********************
-    
-    // private $dbh; //database handler
-    // private $stmt;
-
-    // public function __construct()
-    // {
-    //     // data source name
-    //     $dsn = 'mysql:host=localhost:3307;dbname=phpmvc';
-
-    //     try {
-    //         $this->dbh = new PDO($dsn, 'root', '');
-    //     } catch (PDOException $e) {
-    //         die($e->getMessage());
-    //     }
-
-    // } 
-
-    // public function getAllMahasiswa()
-    // {
-    //     $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
-    //     $this->stmt->execute();
-    //     return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
-    // }
-
-    // *************************** PDO Connection ************************************
-
+class Mahasiswa_model {
     private $table = 'mahasiswa';
     private $db;
 
@@ -56,8 +26,8 @@ class Mahasiswa_model
     {
         $query = "INSERT INTO mahasiswa
                     VALUES
-                ('', :nama, :nrp, :email, :jurusan)";
-
+                  ('', :nama, :nrp, :email, :jurusan)";
+        
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nrp', $data['nrp']);
@@ -72,7 +42,7 @@ class Mahasiswa_model
     public function hapusDataMahasiswa($id)
     {
         $query = "DELETE FROM mahasiswa WHERE id = :id";
-
+        
         $this->db->query($query);
         $this->db->bind('id', $id);
 
@@ -81,6 +51,7 @@ class Mahasiswa_model
         return $this->db->rowCount();
     }
 
+
     public function ubahDataMahasiswa($data)
     {
         $query = "UPDATE mahasiswa SET
@@ -88,8 +59,8 @@ class Mahasiswa_model
                     nrp = :nrp,
                     email = :email,
                     jurusan = :jurusan
-                WHERE id = :id";
-
+                  WHERE id = :id";
+        
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nrp', $data['nrp']);
@@ -102,6 +73,7 @@ class Mahasiswa_model
         return $this->db->rowCount();
     }
 
+
     public function cariDataMahasiswa()
     {
         $keyword = $_POST['keyword'];
@@ -110,6 +82,5 @@ class Mahasiswa_model
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();
     }
-}
 
-        // Ini ada di folder app / models / Mahasiswa_model.php
+}
