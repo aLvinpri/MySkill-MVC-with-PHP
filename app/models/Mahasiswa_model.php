@@ -71,7 +71,7 @@ class Mahasiswa_model
 
     public function hapusDataMahasiswa($id)
     {
-        $query = "DELETE FROM mahasiswa WHERE id = :id";
+        $query = "DELETE FROM " . $this->table . " WHERE id = :id";
 
         $this->db->query($query);
         $this->db->bind('id', $id);
@@ -83,7 +83,7 @@ class Mahasiswa_model
 
     public function ubahDataMahasiswa($data)
     {
-        $query = "UPDATE mahasiswa SET
+        $query = "UPDATE " . $this->table . " SET
                     nama = :nama,
                     nrp = :nrp,
                     email = :email,
@@ -105,7 +105,7 @@ class Mahasiswa_model
     public function cariDataMahasiswa()
     {
         $keyword = $_POST['keyword'];
-        $query = "SELECT * FROM mahasiswa WHERE nama LIKE :keyword";
+        $query = "SELECT * FROM " . $this->table . " WHERE nama LIKE :keyword";
         $this->db->query($query);
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();
